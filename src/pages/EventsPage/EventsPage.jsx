@@ -7,6 +7,7 @@ export const EventsPage = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     const location = useLocation();
+    console.log(location);
 
     useEffect(() => {
         setIsLoading(true);

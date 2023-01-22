@@ -8,15 +8,9 @@ export const useFetchEvent = () => {
     const [event, setEvent] = useState(null);
     const { eventId } = useParams();
 
-    console.log(eventId);
-
-    console.log(fetchEventById);
-
     useEffect(() => {
         fetchEventById(eventId).then(setEvent).catch(console.error);
     }, [eventId]);
-
-    console.log(event);
 
     return event;
 }
