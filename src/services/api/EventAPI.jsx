@@ -14,3 +14,13 @@ export async function fetchEvents() {
 
     return response.data._embedded.events
 }
+
+export async function fetchEventById(id) {
+    const response = await axios(`events/${id}`, {
+        params: {
+            apikey: KEY,
+        }
+    })
+
+    return response.data
+}

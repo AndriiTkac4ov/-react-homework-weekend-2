@@ -1,10 +1,12 @@
-import { Link } from "react-router-dom";
-import { useState, useEffect, Fragment } from "react";
+import { Link, Outlet, useLocation } from "react-router-dom";
+import { useState, useEffect,  } from "react";
 import { fetchEvents } from "../../services/api/EventAPI";
 
 export const EventsPage = () => {
     const [events, setEvents] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+
+    const location = useLocation();
 
     useEffect(() => {
         setIsLoading(true);
@@ -15,8 +17,9 @@ export const EventsPage = () => {
         <>
             {isLoading && <p>Loading...</p>}
             {events.length > 0 && <ul>{events.map(({ id, name }) => {
-                return <li key={id}><Link to={id}>{name}</Link></li>
+                return <li key={id}><Link state={{ from: location }} to={id}>{name}</Link></li>
             })}</ul>}
+            <Outlet />
         </>
     )
 }

@@ -10,9 +10,9 @@ export const Navigation = () => {
                 <li>
                     <NavigationLink to='/events'>Events</NavigationLink>
                 </li>
-                <li>
+                {/* <li>
                     <NavigationLink to='/search'>Search</NavigationLink>
-                </li>
+                </li> */}
             </ul>
         </nav>
     )
